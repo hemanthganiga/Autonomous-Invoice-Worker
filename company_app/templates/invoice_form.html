@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Add invoice{% endblock %}
+{% block content %}
+<section class="panel" aria-labelledby="invoice-title">
+  <h1 id="invoice-title">Add invoice</h1>
+  <p class="muted">Enter dummy invoice information for this local demo.</p>
+  {% if error %}<div class="alert error" role="alert">{{ error }}</div>{% endif %}
+  <form action="/invoices/new" method="post">
+    <label for="invoice_number">Invoice number</label>
+    <input id="invoice_number" name="invoice_number" autocomplete="off" required>
+    <label for="company_name">Company name</label>
+    <input id="company_name" name="company_name" autocomplete="organization" required>
+    <label for="amount">Invoice amount</label>
+    <input id="amount" name="amount" type="number" min="0.01" step="0.01" inputmode="decimal" required>
+    <label for="due_date">Due date</label>
+    <input id="due_date" name="due_date" type="date" required>
+    <div class="actions">
+      <button type="submit">Save invoice</button>
+      <a class="button secondary" href="/invoices">Cancel</a>
+    </div>
+  </form>
+</section>
+{% endblock %}

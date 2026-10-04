@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Invoices{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div>
+    <h1>Invoices</h1>
+    <p class="muted">{{ invoices|length }} saved record{% if invoices|length != 1 %}s{% endif %}</p>
+  </div>
+  <a class="button" href="/invoices/new">Add invoice</a>
+</div>
+{% if message %}<div class="alert" role="status">{{ message }}</div>{% endif %}
+<div class="table-wrap">
+  {% if invoices %}
+  <table>
+    <thead><tr><th>Invoice number</th><th>Company</th><th>Amount</th><th>Due date</th></tr></thead>
+    <tbody>
+      {% for invoice in invoices %}
+      <tr>
+        <td>{{ invoice.invoice_number }}</td>
+        <td>{{ invoice.company_name }}</td>
+        <td>${{ "{:,.2f}".format(invoice.amount) }}</td>
+        <td>{{ invoice.due_date.isoformat() }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <div class="empty">No invoices have been saved yet.</div>
+  {% endif %}
+</div>
+{% endblock %}

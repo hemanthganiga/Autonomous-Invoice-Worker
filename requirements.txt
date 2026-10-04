@@ -1,0 +1,14 @@
+# Python 3.12 project dependencies. Versions are bounded to avoid major-version API breaks.
+groq>=0.31,<1
+langgraph>=0.6,<2
+langchain-groq>=0.3,<1
+langchain-core>=0.3,<2
+playwright>=1.48,<2
+PyMuPDF>=1.24,<2
+fastapi>=0.115,<1
+uvicorn[standard]>=0.30,<1
+streamlit>=1.39,<2
+pydantic>=2.9,<3
+python-dotenv>=1.0,<2
+rank-bm25>=0.2.2,<0.3
+pytest>=8,<9

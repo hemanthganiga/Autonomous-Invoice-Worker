@@ -1,0 +1,10 @@
+.venv/
+.env
+.pip-cache/
+.playwright-browsers/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+database/*.db
+*.log
+video/

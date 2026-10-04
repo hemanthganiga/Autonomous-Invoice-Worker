@@ -1,0 +1,1 @@
+"""Local simulated company invoice application."""
